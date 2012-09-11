@@ -21,7 +21,7 @@ class PivotalTrackerOptionsForm(forms.Form):
         help_text=mark_safe(_('Enter your API Token (found on %s).') % ('<a href="https://www.pivotaltracker.com/profile">pivotaltracker.com/profile</a>',)))
     project = forms.IntegerField(label=_('Project ID'),
         widget=forms.TextInput(attrs={'class': 'span3', 'placeholder': 'e.g. 639281'}),
-        help_text=_('Enter your project numerical ID.'))
+        help_text=_('Enter your project\'s numerical ID.'))
 
 
 class PivotalTrackerPlugin(IssuePlugin):
