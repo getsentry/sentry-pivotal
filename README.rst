@@ -10,4 +10,4 @@ Install
 
 Install the package via ``pip``::
 
-    pip install sentry-github
+    pip install sentry-pivotal
