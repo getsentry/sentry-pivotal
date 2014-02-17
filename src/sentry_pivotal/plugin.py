@@ -54,8 +54,8 @@ class PivotalTrackerPlugin(IssuePlugin):
 
         story = client.Story()
         story.story_type = "bug"
-        story.name = form_data['title']
-        story.description = form_data['description']
+        story.name = form_data['title'].decode('utf8')
+        story.description = form_data['description'].decode('utf8')
         story.labels = "sentry"
 
         try:
