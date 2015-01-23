@@ -61,6 +61,8 @@ class PivotalTrackerPlugin(IssuePlugin):
         try:
             project = client.projects.get(self.get_option('project', group.project))
             story = project.stories.add(story)
+        except pyvotal.exceptions.AccessDenied:
+            raise forms.ValidationError(_('Access denied through Pivotal API.'))
         except Exception, e:
             raise forms.ValidationError(_('Error communicating with Pivotal Tracker: %s') % (unicode(e),))
 
