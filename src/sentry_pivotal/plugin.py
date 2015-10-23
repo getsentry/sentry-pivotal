@@ -9,6 +9,7 @@ sentry_pivotal.plugin
 from django import forms
 from django.utils.html import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import force_text
 from sentry.plugins.bases.issue import IssuePlugin
 
 import pyvotal
@@ -54,8 +55,8 @@ class PivotalTrackerPlugin(IssuePlugin):
 
         story = client.Story()
         story.story_type = "bug"
-        story.name = form_data['title'].encode('utf8')
-        story.description = form_data['description'].encode('utf8')
+        story.name = force_text(form_data['title'], errors='replace')
+        story.description = force_text(form_data['description'], errors='replace')
         story.labels = "sentry"
 
         try:
