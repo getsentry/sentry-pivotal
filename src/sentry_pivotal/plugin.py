@@ -73,6 +73,4 @@ class PivotalTrackerPlugin(IssuePlugin):
         return '#%s' % issue_id
 
     def get_issue_url(self, group, issue_id, **kwargs):
-        project = self.get_option('project', group.project)
-
-        return 'https://www.pivotaltracker.com/projects/%s/stories/%s' % (project, issue_id)
+        return 'https://www.pivotaltracker.com/story/show/%s' % (issue_id)
